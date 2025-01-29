@@ -1,0 +1,167 @@
+body{
+    display: flex;
+    justify-content: center;
+   
+}
+aside{
+    width: 10dvw;
+    height: 100dvh;
+    background-color: brown;
+  
+}
+main{
+    width: 60dvw;
+    height: 100dvh;
+    background-color: aquamarine;
+
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#joined{
+    display: flex;
+    width: 100%;
+    height: 90%;
+    background-color: bisque;
+    
+    flex-direction: column;
+}
+#created{
+    display: none;
+    
+}
+.active{
+display: flex;
+justify-content: space-around;
+
+width: 99,9%;
+height: 40%;
+align-items: center;
+}
+.activeCard{
+    display: none;
+    flex-direction: column;
+
+    height: 100%;
+    width: 30% ;
+}
+#createIcon0, #createIcon1, #createIcon2{
+    display: flex;
+    height: 50%;
+    width: 20% ;
+}
+
+.past{
+    border-style: solid;
+    width: 99,9%;
+    height: 60%;
+}
+.halfs{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+width: 100%;
+height: 50%;
+}
+.pastCard{
+    width: 30%;
+    height: 90%;
+    background-color: rgb(155, 155, 231);
+}
+p{
+    font-size: 1dvw;
+}
+#mainFooter{
+    display: flex;
+    width: 100%;
+    background-color: cadetblue;
+    height: 10%;
+}
+.fill{
+    height: 100%;
+    width: 35%;
+    
+}
+#pageSwitch{
+display: flex;
+justify-content: space-evenly;
+align-items: center;
+width: 30%;
+height: 100%;
+}
+.switchers{
+    height: 50px;
+    width: 100px;
+}
+
+button img{
+    height: 100%;
+    width: 100;
+}
+#leftArrow{
+    transform: rotate(180deg);
+}
+#backgroundLocker{
+    display: none;
+    position: absolute;
+    height: 100dvh;
+    width: 100dvw;
+
+
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#card{
+    width: 35dvw;
+    height: 80dvh;
+    background-color: rgb(112, 224, 224);
+
+    
+}
+#rate{
+    display: flex;
+    flex-direction: column;
+
+}
+#rateOrganizer{
+    height: 20dvh;
+    width: 25dvw;
+    background-color:darkgreen;
+}
+#participantsHonor{
+    height: 80dvh;
+    width: 25dvw;
+    background-color: darkgoldenrod;
+    display: flex;
+    flex-direction: column;
+}
+.star {
+    width:  3dvw;
+    cursor: pointer;
+    
+}
+#rateOrganizer button{
+    background-color: transparent; 
+  border: none; 
+  outline: none; 
+}
+#description{
+    width: 90%;
+    font-size: 20px;
+}
+.honorCard{
+    display: flex;
+    width: 90%;
+    height: 50px;
+    flex-direction: row;
+}
+.honorImages button{
+    height: 40px;
+    background-color: transparent; 
+  border: none; 
+  outline: none; 
+}
+.honorCard img{
+    cursor: pointer;
+}

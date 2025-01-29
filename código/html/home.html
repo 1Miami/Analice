@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/home.css">
+    <title>Hubfy - Eventos</title>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <div class="logo-symbol"></div>
+                <h1>hubfy</h1>
+            </div>
+            <nav>
+                <a href="../html/eventCreation.html" class="nav-button create-button">Criar Evento</a>
+                <a href="../html/user.html" class="nav-button user-button">Página do usuário</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Modal para detalhar evento -->
+    <div id="joinEventLock">
+        <div id="joinEvent">
+            <button onclick="fecharEvento()" class="close-button">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </button>
+            
+            <div id="top">
+                <h1 id="preencher"></h1>
+            </div>
+            <div id="bottom">
+                <div id="leftSide">
+                    <p id="description"></p>
+                </div>
+                <div id="rightSide">
+                    <h1 id="type"></h1>
+                    <h2 id="dataHora"></h2>
+                    <h2 id="local"></h2>
+                    <a id="contact" href="">Entrar em contato</a>
+                    <h2 id="participants"></h2>
+                    <button id="userEvent" value="" onclick="entrarEvento()">Participar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lista de Grupos -->
+    <div id="groupsList">
+        <!-- Grupos serão carregados aqui -->
+    </div>
+
+    <!-- Main para Eventos -->
+    <main id="eventsList">
+        <!-- Os eventos serão carregados aqui dinamicamente -->
+    </main>
+
+    <div id="message"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            const token = localStorage.getItem('token');
+            if (!token) {
+                window.location.href = 'login.html';
+                return;
+            }
+
+            // Requisição para buscar os grupos
+            const response = await fetch('http://localhost:3000/groups', {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${token}` // Certifique-se de que o token está sendo enviado
+                }
+            });
+
+            if (response.ok) {
+                const groups = await response.json();
+                const groupsList = document.getElementById('groupsList');
+
+                groups.forEach(group => {
+                    const groupCard = document.createElement('div');
+                    groupCard.classList.add('eventCard');
+                    groupCard.style.backgroundImage = `url('http://localhost:3000${group.image_url}')`; // Colocando a imagem de fundo
+                    groupCard.style.backgroundSize = 'cover';
+                    groupCard.style.backgroundPosition = 'center';
+
+                    groupCard.innerHTML = `
+                        <h3>${group.name}</h3>
+                        <div class="divide">
+                            <p><strong>Tipo:</strong> Encontro social</p>
+                            <p><strong>Participantes:</strong> 12</p>
+                        </div>
+                        <div class="divide">
+                            <p><strong>Data:</strong> 28/01/2025</p>
+                            <p><strong>Hora:</strong> 12:31:00</p>
+                        </div>
+                        <p><strong>Endereço:</strong> Campina, São Leopoldo - RS</p>
+                        <button value="1" onclick="entrarCardEvento(this)">Participar</button>
+                    `;
+
+                    groupsList.appendChild(groupCard); // Adiciona o card de grupo na tela
+                });
+            } else {
+                console.log('Erro ao obter os grupos');
+            }
+        });
+    </script>
+
+    <script src="../js/home.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Evento</title>
+    
+</head>
+<body>
+    
+    <div class="container">
+        <h2>Registrar Evento</h2>
+        <form id="eventRegisterForm" enctype="multipart/form-data">
+            
+            <label for="name">Nome do Evento:</label>
+            <input type="text" id="name" name="name" placeholder="Digite o nome do evento" required>
+            
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description" placeholder="Digite a descrição do evento" required></textarea>
+            
+            <label for="event_type">Tipo de Evento:</label>
+            <select id="event_type" name="event_type" required>
+                <option value="" disabled selected>Selecione o tipo do evento</option>
+                <option value="Encontro social">Encontro social</option>
+                <option value="Rodas de Apoio">Rodas de Apoio</option>
+                <option value="Geek">Geek</option>
+                <option value="Cultural">Cultural</option>
+            </select>
+            
+            <label for="participants">Número de Participantes:</label>
+            <input type="number" id="participants" name="participants" placeholder="Digite o número de participantes" min="2" required>
+            
+            <label for="event_date">Data do Evento:</label>
+            <input type="date" id="event_date" name="event_date" required>
+            
+            <label for="event_time">Horário do Evento:</label>
+            <input type="time" id="event_time" name="event_time" required>
+
+            <label for="image">Imagem do Evento:</label>
+            <input type="file" id="image" name="image" />
+
+            <label for="cep">CEP:</label>
+            <input type="text" id="cep" name="cep" placeholder="Digite o CEP" maxlength="9" pattern="[0-9]{5}-[0-9]{3}" title="Digite o CEP no formato 12345-678" required>
+            
+            <label for="phone_number">Telefone:</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Digite o telefone" maxlength="15" pattern="^\(?\d{2}\)?\s?\d{4,5}-?\d{4}$" title="Digite um número de telefone válido com DDD (ex: (11) 98765-4321)" required>
+            
+            <button type="submit">Registrar Evento</button>
+        </form>
+
+        <div id="message"></div>
+    </div>
+
+    <script src="../js/eventCreation.js">
+    </script>
+
+</body>
+</html>
