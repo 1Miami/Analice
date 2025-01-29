@@ -1,38 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/register.css">
+    <title>Hubfy - Register</title>
 </head>
 <body>
-    <div class="container">
-        <h2>Registrar-se</h2>
+    <div id="circuloBackGround"></div>
+    
+    <main>
+        <div class="logo-container">
+            <div class="logo">
+                <div class="logo-symbol"></div>
+                <h1 class="logo-text">hubfy</h1>
+            </div>
+            <p class="logo-tagline">Entre na nossa comunidade</p>
+        </div>
+
         <form id="registerForm" enctype="multipart/form-data">
+            <div class="profile-upload">
+                <div class="profile-preview" id="profilePreview">
+                    <img src="" alt="" id="previewImage" style="display: none;">
+                    <div class="upload-icon" id="defaultIcon">+</div>
+                </div>
+                <input type="file" id="profilePhoto" name="profilePhoto" accept="image/*" class="hidden">
+                <p class="upload-text">Click para colocar sua foto</p>
+            </div>
 
+            <input type="text" id="name" name="name" class="input" placeholder="Full Name" required>
+            <input type="number" id="age" name="age" class="input" placeholder="Age" min="18" required>
+            <input type="text" id="contact" name="contact" class="input" placeholder="Email or Phone" required>
+            <input type="password" id="password" name="password" class="input" placeholder="Password" required>
             
-            <label for="name">Nome Completo:</label>
-            <input type="text" id="name" name="name" placeholder="Digite seu nome" required>
-
-            
-            <label for="age">Idade:</label>
-            <input type="number" id="age" name="age" placeholder="Digite sua idade" min="18" required>
-
-            
-            <label for="contact_info">Email ou Telefone:</label>
-            <input type="text" id="contact_info" name="contact_info" placeholder="Digite seu contato" required>
-
-            
-            <label for="password">Senha:</label>
-            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
-            
-            <button type="submit">Registrar</button>
-            <p>Já tem uma conta? <a href="login.html">Fazer login</a></p>
+            <button type="submit">Register</button>
         </form>
 
+        <div id="loginFormFooter">
+            <a href="login.html">Já tem conta? Login</a>
+        </div>
+
         <div id="message"></div>
-    </div>
+    </main>
 
     <script src="../js/register.js"></script>
 </body>
